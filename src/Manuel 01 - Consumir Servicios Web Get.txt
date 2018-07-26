@@ -1,0 +1,24 @@
+Manuel configuracion                    ********
+Para consumir servicios WEB             ********
+https://randomuser.me/api/?results=2    ********
+
+Se crea el provider ****
+ionic generate provider conectar
+
+App.modules.ts              ******
+import {HttpClientModule} from '@angular/common/http';
+en el bloque imports        ******
+HttpClientModule
+
+Provider 'conectar'                     *****
+crear el metodo que trae los datos por tipo de peticón GET          ***
+TraerLista(Cuantos){
+    return this.http.get('https://randomuser.me/api/?results='+Cuantos);
+}
+
+
+
+
+
+
+

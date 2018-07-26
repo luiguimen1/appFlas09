@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ListadoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>Consultar Lista</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Numero de personas</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-input type="number" value="" [(ngModel)]="Num1"  placeholder="Ingrese un numero"></ion-input>    
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="traerListado()">Traer</button>    
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item *ngFor="let piso of edificio">
+            <ion-avatar item-start>
+                <img src="{{piso.picture.thumbnail}}">
+            </ion-avatar>
+            <h2>{{piso.name.title}} {{piso.name.first}}</h2>
+            <p>{{piso.location.city}}</p>
+            <ion-avatar item-end>
+                <ion-icon (click)="verPerfil(piso)" name="arrow-dropright-circle"></ion-icon>
+            </ion-avatar>            
+        </ion-item>
+    </ion-list>
+</ion-content>
