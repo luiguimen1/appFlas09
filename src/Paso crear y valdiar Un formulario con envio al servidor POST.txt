@@ -1,10 +1,10 @@
 
-<form [formGroup]="ForRegProd" (ngSubmit)="metodo()" novalidate>
+<form [formGroup]="ForRegPersona" (ngSubmit)="metodo()" novalidate>
 	<ion-item>
                 <ion-label stacked>Nombre</ion-label>
                 <ion-input formControlName="nombre" type="text" placeholder="Ingrese Nombre"></ion-input>
             </ion-item>
-            <ion-item *ngIf="ForRegProd.get('nombre').errors && ForRegProd.get('nombre').dirty">
+            <ion-item *ngIf="ForRegPersona.get('nombre').errors && ForRegPersona.get('nombre').dirty">
                 <p color="danger" ion-text *ngIf="ForRegProd.get('nombre').hasError('required')">Debe Ingresar datos</p>
                 <p color="danger" ion-text *ngIf="ForRegProd.get('nombre').hasError('pattern')">Solo acepta de a - Z</p>
             </ion-item>
@@ -40,15 +40,18 @@ public fb: FormBuilder
 ForRegProd: FormGroup;
 
 
-iniciarFormulario() {
-        this.ForRegProd = this.fb.group({
+
+        this.ForRegPersona = this.fb.group({
             fkCat: ['', [Validators.required, Validators.pattern(/^[0-9]{1,3}$/)]],
             nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-Z_-ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöùúûüıøşÿĞdŒ ]{3,50}$/)]],
             descripcion: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9_-ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöùúûüıøşÿĞdŒ  ]{3,200}$/)]],
             valor: ['', [Validators.required, Validators.pattern(/^[0-9]{1,10}$/)]],
             cant: ['', [Validators.required, Validators.pattern(/^[0-9]{1,10}$/)]]
         });
-    }
+
+
+
+
 
 
 
@@ -59,6 +62,19 @@ obtener(){
   let producto =this.ForRegProd.value;
 console.log(producto);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -81,3 +97,10 @@ MetodoPost(DATA) {
         let urlLocal = this.url + "***/****/***.php";
         return this.http.post(urlLocal, JSON.stringify(data), this.options);
     }
+
+
+
+
+
+header('Access-Control-Allow-Origin: *');
+$json = file_get_contents("php://input");
