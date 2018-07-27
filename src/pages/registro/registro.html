@@ -5,11 +5,69 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>Registro</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Registro</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-title><button ion-button (click)="irHome()">Menu</button></ion-title>
+    <form [formGroup]="ForRegPersona" (ngSubmit)="GuardarPersona()" novalidate>
+        <ion-item>
+            <ion-label stacked>CC</ion-label>
+            <ion-input formControlName="cc" type="number" placeholder="Ingrese la Cédula"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="ForRegPersona.get('cc').errors && ForRegPersona.get('cc').dirty">
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('cc').hasError('required')">Debe Ingresar datos</p>
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('cc').hasError('pattern')">Solo acepta de 0-9 [5-10]</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Nombre</ion-label>
+            <ion-input formControlName="nombre" type="text" placeholder="Ingrese Nombre"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="ForRegPersona.get('nombre').errors && ForRegPersona.get('nombre').dirty">
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('nombre').hasError('required')">Debe Ingresar datos</p>
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('nombre').hasError('pattern')">Solo acepta de a - Z</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Apellido</ion-label>
+            <ion-input formControlName="apellido" type="text" placeholder="Ingrese Apellido"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="ForRegPersona.get('apellido').errors && ForRegPersona.get('apellido').dirty">
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('apellido').hasError('required')">Debe Ingresar datos</p>
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('apellido').hasError('pattern')">Solo acepta de a - Z</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Telefono</ion-label>
+            <ion-input formControlName="Telefono" type="number" placeholder="Ingrese Telefono"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="ForRegPersona.get('Telefono').errors && ForRegPersona.get('Telefono').dirty">
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('Telefono').hasError('required')">Debe Ingresar datos</p>
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('Telefono').hasError('pattern')">Solo acepta de 0-9 [10] </p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input formControlName="Email" type="email" placeholder="Ingrese el email"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="ForRegPersona.get('Email').errors && ForRegPersona.get('Email').dirty">
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('Email').hasError('required')">Debe Ingresar datos</p>
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('Email').hasError('email')">Ejemplo@asi.es</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Fecha Nacimiento 2</ion-label>
+            <ion-datetime displayFormat="YYYY/MM/DD" formControlName="fecha" placeholder="YYYY/MM/DD" ></ion-datetime>
+        </ion-item>
+        <ion-item *ngIf="ForRegPersona.get('fecha').errors && ForRegPersona.get('fecha').dirty">
+            <p color="danger" ion-text *ngIf="ForRegPersona.get('fecha').hasError('required')">Debe Ingresar datos</p>
+        </ion-item>
+
+        <div padding>
+            <button ion-button block type="submit" color="micolor" [disabled]="!ForRegPersona.valid">Guardar</button>
+        </div>
+    </form>
 </ion-content>

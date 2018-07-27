@@ -53,5 +53,8 @@ export class ListadoPage {
         };
         this.navCtrl.push(VerperfilPage,local);
     }
+    
+    
+    
 
 }
