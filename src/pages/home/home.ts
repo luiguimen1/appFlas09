@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {RegistroPage} from '../registro/registro';
 import {MatePage} from '../mate/mate';
 import {ListadoPage} from '../listado/listado';
+import {LacamPage} from '../lacam/lacam';
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -25,6 +26,10 @@ export class HomePage {
     
     IraListado(){
         this.navCtrl.push(ListadoPage);
+    }
+    
+    IrCamara(){
+        this.navCtrl.push(LacamPage);
     }
 
 }

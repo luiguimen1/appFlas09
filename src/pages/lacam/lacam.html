@@ -1,0 +1,47 @@
+<!--
+  Generated template for the LacamPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Capturar Foto</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-card>
+    <ion-grid>
+        <ion-row>
+            <ion-col>Nombre</ion-col>
+            <ion-col>{{persona.nombre}}</ion-col>
+        </ion-row>
+    <ion-row>
+    <ion-col>Apellido</ion-col>
+    <ion-col>{{persona.apellido}}</ion-col>
+    </ion-row>
+    </ion-grid>
+    </ion-card>
+    
+    
+<ion-grid>
+    <ion-row>
+        <ion-col>
+            <button ion-button (click)="getPictureCamara()">Activar CAM</button>
+        </ion-col>
+        <ion-col>
+            <button ion-button (click)="getImagenSD()">Ver SD</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-card *ngIf="imageURI" >
+        <img src="{{imageURI}}" alt="Ionic File" width="300" />
+        <ion-item>
+            <button ion-button (click)="CargarImagen()">CargarImagen</button>
+        </ion-item>
+    </ion-card>
+</ion-content>

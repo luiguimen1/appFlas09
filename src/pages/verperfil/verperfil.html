@@ -16,14 +16,16 @@
 <ion-content padding>
     <ion-card>
         <ion-avatar >
-            <img class="ayuda" src="{{persona.picture.large}}"/>
+            <img class="ayuda" src="http://192.168.0.225:8081/flas09/img/{{persona.foto}}"/>
         </ion-avatar>
         <ion-card-content>
             <ion-card-title>
-                <h2>{{persona.name.title}} {{persona.name.first}}</h2>
+                <h2>{{persona.nombre}} {{persona.apellido}}</h2>
             </ion-card-title>
-            <p>Edad <b>{{persona.dob.age}}</b></p>
-            <p>Fecha de Nacimiento {{persona.dob.date}}</p>
+            <p>email <b>{{persona.email}}</b></p>
+            <p>Fecha de Nacimiento {{persona.fechaNa}}</p>
+            <p>Fecha de registro {{persona.fechaReg}}</p>
+            <button ion-button (click)="actualizarfoto()">Actualizar foto</button>
         </ion-card-content>
     </ion-card>
 </ion-content>

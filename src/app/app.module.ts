@@ -12,7 +12,12 @@ import {ConectarProvider} from '../providers/conectar/conectar';
 
 import {ListadoPage} from '../pages/listado/listado';
 import {VerperfilPage} from '../pages/verperfil/verperfil';
+import {LacamPage} from '../pages/lacam/lacam';
 
+import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
+import {File} from '@ionic-native/file';
+
+import {Camera} from '@ionic-native/camera';
 
 
 @NgModule({
@@ -22,7 +27,8 @@ import {VerperfilPage} from '../pages/verperfil/verperfil';
         RegistroPage,
         MatePage,
         ListadoPage,
-        VerperfilPage
+        VerperfilPage,
+        LacamPage
     ],
     imports: [
         BrowserModule,
@@ -36,13 +42,19 @@ import {VerperfilPage} from '../pages/verperfil/verperfil';
         RegistroPage,
         MatePage,
         ListadoPage,
-        VerperfilPage
+        VerperfilPage,
+        LacamPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        ConectarProvider
+        ConectarProvider,
+        Camera,
+        FileTransfer,
+       // FileUploadOptions,
+        FileTransferObject,
+        File
     ]
 })
 export class AppModule {}

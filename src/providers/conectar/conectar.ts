@@ -23,7 +23,8 @@ export class ConectarProvider {
      * Metodo que permite traer un numero especifico de datos
      */
     TraerLista(Cuantos) {
-        return this.http.get('https://randomuser.me/api/?results=' + Cuantos);
+     //   return this.http.get('https://randomuser.me/api/?results=' + Cuantos);
+        return this.http.get(this.url + "CRTL/Persona/ListaPersona.php");
     }
     /**
      * Metodo que permite almcenar en la base de datos a un Persona 

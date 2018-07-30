@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ConectarProvider} from '../../providers/conectar/conectar';
 import {AlertController} from 'ionic-angular';
 import {ToastController} from 'ionic-angular';
+import {LacamPage} from '../lacam/lacam';
 
 
 /**
@@ -81,7 +82,9 @@ export class RegistroPage {
     procesarRespuesta(data) {
         if (data.success == "OK") {
             this.presentToast("la Persona fue Creada");
+            let persona = this.ForRegPersona.value;
             this.IniciarFormulario();
+            this.navCtrl.push(LacamPage, {data: persona});
         } else {
             this.presentAlert("Error # 13", "Hay un error de percistencia");
         }

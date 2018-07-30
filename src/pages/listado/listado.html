@@ -26,10 +26,10 @@
     <ion-list>
         <ion-item *ngFor="let piso of edificio">
             <ion-avatar item-start>
-                <img src="{{piso.picture.thumbnail}}">
+                <img src="http://192.168.0.225:8081/flas09/img/{{piso.foto}}">
             </ion-avatar>
-            <h2>{{piso.name.title}} {{piso.name.first}}</h2>
-            <p>{{piso.location.city}}</p>
+            <h2>{{piso.nombre}} {{piso.apellido}}</h2>
+            <p>{{piso.email}}</p>
             <ion-avatar item-end>
                 <ion-icon (click)="verPerfil(piso)" name="arrow-dropright-circle"></ion-icon>
             </ion-avatar>            

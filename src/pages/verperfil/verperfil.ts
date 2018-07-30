@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {LacamPage} from '../lacam/lacam';
 
 /**
  * Generated class for the VerperfilPage page.
@@ -23,5 +24,9 @@ export class VerperfilPage {
     ionViewDidLoad() {
         console.log('ionViewDidLoad VerperfilPage');
     }
+    actualizarfoto() {
+        this.navCtrl.push(LacamPage, {data: this.persona});
+    }
+
 
 }

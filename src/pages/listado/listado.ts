@@ -43,18 +43,21 @@ export class ListadoPage {
 
 
     proceso(data) {
-        this.edificio = data.results;
+        this.edificio = Array();
+        for (let i = 0; i < data.row; i++) {
+            this.edificio.push(data[i]);
+        }
     }
 
 
     verPerfil(piso) {
-        let local={
+        let local = {
             piso: piso
         };
-        this.navCtrl.push(VerperfilPage,local);
+        this.navCtrl.push(VerperfilPage, local);
     }
-    
-    
-    
+
+
+
 
 }
