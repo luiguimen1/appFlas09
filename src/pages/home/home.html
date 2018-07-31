@@ -13,10 +13,24 @@
     <button ion-button color="micolor" class="miboton" round (click)="IraListado()">ir a listado</button>
     <div>
         <img src="../assets/imagenes/icono.jpg" alt=""/>
-    </div>
-    
+    </div>    
     <button ion-button color="secondary" (click)="IrCalculadora()">Ir Calculadora</button>
     <button ion-button color="secondary" (click)="IrCamara()">Ir Camara</button>
+    <ion-grid>
+        <ion-row>
+            <ion-col col4>
+                <button ion-button color="primary" (click)="irLeerQr()">Validar Usuario</button>
+            </ion-col>
+            <ion-col col4>
+                <button ion-button color="micolor" (click)="irCrearQr()">Presentar</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    
+    
+    
+    
+    
 </ion-content>
 
 

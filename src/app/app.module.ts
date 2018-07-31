@@ -17,7 +17,13 @@ import {LacamPage} from '../pages/lacam/lacam';
 import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 import {File} from '@ionic-native/file';
 
+import {CrearqrPage} from '../pages/crearqr/crearqr';
+import {LeerqrPage} from '../pages/leerqr/leerqr';
+
+
 import {Camera} from '@ionic-native/camera';
+import {NgxQRCodeModule} from 'ngx-qrcode2';
+import {BarcodeScanner} from '@ionic-native/barcode-scanner';
 
 
 @NgModule({
@@ -28,12 +34,15 @@ import {Camera} from '@ionic-native/camera';
         MatePage,
         ListadoPage,
         VerperfilPage,
-        LacamPage
+        LacamPage,
+        CrearqrPage,
+        LeerqrPage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
-        HttpClientModule
+        HttpClientModule,
+        NgxQRCodeModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -43,7 +52,9 @@ import {Camera} from '@ionic-native/camera';
         MatePage,
         ListadoPage,
         VerperfilPage,
-        LacamPage
+        LacamPage,
+        CrearqrPage,
+        LeerqrPage
     ],
     providers: [
         StatusBar,
@@ -51,8 +62,9 @@ import {Camera} from '@ionic-native/camera';
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         ConectarProvider,
         Camera,
+        BarcodeScanner,
         FileTransfer,
-       // FileUploadOptions,
+        // FileUploadOptions,
         FileTransferObject,
         File
     ]
