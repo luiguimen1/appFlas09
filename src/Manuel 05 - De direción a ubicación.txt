@@ -98,3 +98,22 @@ loadMap(lati, logi) {
             mapEle.classList.add('show-map');
         });
     }
+
+
+en el html  ***
+
+<div id="map">
+</div>
+
+
+en el css ***
+#map {
+        width: 100%;
+        height: 300px;
+        opacity: 0;
+        transition: opacity 150ms ease-in;
+        display: block;
+        &.show-map{
+            opacity: 1;
+        }
+    }
