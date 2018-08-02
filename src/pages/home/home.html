@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      App Flores
-    </ion-title>
-      <button ion-button color="micolor" class="miboton" (click)="IrRegistros()">Registro</button>
-  </ion-navbar>
-    
+    <ion-navbar>
+        <ion-title>
+            App Flores
+        </ion-title>
+        <button ion-button color="micolor" class="miboton" (click)="IrRegistros()">Registro</button>
+    </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
@@ -26,18 +26,21 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-    
-    
-    
-    
-    
+
+    <ion-content class="card-background-page">
+        <ion-card (click)="IrLocalizar()">
+            <img src="../assets/imagenes/google.png"/>
+            <div class="card-title">Localizar</div>
+            <div class="card-subtitle">De dirección a Lat y Log</div>
+        </ion-card>
+    </ion-content>
 </ion-content>
 
 
 <ion-footer>
-  <ion-navbar>
-    <ion-title>
-      CetColsubsidio
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            CetColsubsidio
+        </ion-title>
+    </ion-navbar>
 </ion-footer>

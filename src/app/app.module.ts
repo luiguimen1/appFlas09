@@ -14,6 +14,8 @@ import {ListadoPage} from '../pages/listado/listado';
 import {VerperfilPage} from '../pages/verperfil/verperfil';
 import {LacamPage} from '../pages/lacam/lacam';
 
+import {LocalizarPage} from '../pages/localizar/localizar';
+
 import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 import {File} from '@ionic-native/file';
 
@@ -26,6 +28,9 @@ import {NgxQRCodeModule} from 'ngx-qrcode2';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner';
 
 
+import {Geolocation} from '@ionic-native/geolocation';
+import {NativeGeocoder} from '@ionic-native/native-geocoder';
+
 @NgModule({
     declarations: [
         MyApp,
@@ -36,7 +41,8 @@ import {BarcodeScanner} from '@ionic-native/barcode-scanner';
         VerperfilPage,
         LacamPage,
         CrearqrPage,
-        LeerqrPage
+        LeerqrPage,
+        LocalizarPage
     ],
     imports: [
         BrowserModule,
@@ -54,7 +60,8 @@ import {BarcodeScanner} from '@ionic-native/barcode-scanner';
         VerperfilPage,
         LacamPage,
         CrearqrPage,
-        LeerqrPage
+        LeerqrPage,
+        LocalizarPage
     ],
     providers: [
         StatusBar,
@@ -66,7 +73,9 @@ import {BarcodeScanner} from '@ionic-native/barcode-scanner';
         FileTransfer,
         // FileUploadOptions,
         FileTransferObject,
-        File
+        File,
+        Geolocation,
+        NativeGeocoder
     ]
 })
 export class AppModule {}

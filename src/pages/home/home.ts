@@ -6,6 +6,7 @@ import {ListadoPage} from '../listado/listado';
 import {LacamPage} from '../lacam/lacam';
 import {CrearqrPage} from '../crearqr/crearqr';
 import {LeerqrPage} from '../leerqr/leerqr';
+import {LocalizarPage} from '../localizar/localizar';
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -40,6 +41,10 @@ export class HomePage {
 
     irCrearQr() {
         this.navCtrl.push(CrearqrPage, {qr: "Por defecto"});
+    }
+    
+    IrLocalizar(){
+        this.navCtrl.push(LocalizarPage);
     }
 
 }
