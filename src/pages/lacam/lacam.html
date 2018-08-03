@@ -41,7 +41,7 @@
     <ion-card *ngIf="imageURI" >
         <img src="{{imageURI}}" alt="Ionic File" width="300" />
         <ion-item>
-            <button ion-button (click)="CargarImagen()">CargarImagen</button>
+            <button ion-button *ngIf="imageURI" (click)="CargarImagen()">CargarImagen</button>
         </ion-item>
     </ion-card>
 </ion-content>

@@ -35,6 +35,7 @@ export class LacamPage {
     }
 
     getPictureCamara() {
+        this.imageURI=false;
         let options: CameraOptions = {
             destinationType: this.miCAM.DestinationType.DATA_URL,
             targetWidth: 500,
@@ -43,7 +44,7 @@ export class LacamPage {
         }
         this.miCAM.getPicture(options)
             .then(imageData => {
-                this.imageURI = `data:image/jpeg;base64,${imageData}`;
+                 this.laImagen(`data:image/jpeg;base64,${imageData}`);
             })
             .catch(error => {
                 console.error(error);
@@ -51,16 +52,16 @@ export class LacamPage {
     }
 
     getImagenSD() {
+        this.imageURI=false;
         let options: CameraOptions = {
             destinationType: this.miCAM.DestinationType.FILE_URI,
             sourceType: this.miCAM.PictureSourceType.PHOTOLIBRARY,
             targetWidth: 500,
-            targetHeight: 500,
-            quality: 100
+            targetHeight: 500
         }
         this.miCAM.getPicture(options)
             .then(imageData => {
-                this.imageURI = imageData;
+                this.laImagen(imageData);
             })
             .catch(error => {
                 console.error(error);
@@ -68,6 +69,10 @@ export class LacamPage {
     }
     info;
     ruta;
+
+    laImagen(porEsta) {
+        this.imageURI = porEsta;
+    }
 
     CargarImagen() {
         let loader = this.loadingCtrl.create({
