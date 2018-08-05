@@ -89,7 +89,8 @@ scanCode() {
 
 
 Ahora se crea un boton que llame al metodo en html de page *********************
-<button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Leer QR</button>
+<button ion-button full icon-left (click)="scanCode()" color="secondary">
+<ion-icon name="qr-scanner"></ion-icon>Leer QR</button>
 
 
 y por ultimo en la misma html de la page se agrega el siguiente codigo para mostrar ***
@@ -108,7 +109,7 @@ Es de caracter obligatorio, haber instalado las librerias de la camara *********
 haber creado las respectivas instancias de la camara el app.modules ************
 de lo contrario no funciona el scaneo del QR ***********************************
 
-ver archivo de codigoCamara.txt lineas de 1 a 14
+ver archivo de Manuel 03 - Activar Camara.txt 
 
 Nota 2:
 El barcodeScanner se utiliza en las versiones 27.+ *****************************

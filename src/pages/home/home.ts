@@ -4,6 +4,9 @@ import {RegistroPage} from '../registro/registro';
 import {MatePage} from '../mate/mate';
 import {ListadoPage} from '../listado/listado';
 import {LacamPage} from '../lacam/lacam';
+import {QrPage} from '../qr/qr';
+import {LeerqrPage} from '../leerqr/leerqr';
+
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -31,5 +34,12 @@ export class HomePage {
     IrCamara(){
         this.navCtrl.push(LacamPage);
     }
-
+    
+    irQR(){
+        this.navCtrl.push(QrPage);
+    }
+    
+    irLeer(){
+        this.navCtrl.push(LeerqrPage);
+    }
 }

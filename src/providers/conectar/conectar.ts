@@ -18,7 +18,7 @@ export class ConectarProvider {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
     };
-    url = "http://192.168.0.225:8081/flas09/";
+    url = "http://192.168.0.102/webflas09/";
     /**
      * Metodo que permite traer un numero especifico de datos
      */

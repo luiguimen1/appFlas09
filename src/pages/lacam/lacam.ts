@@ -17,17 +17,18 @@ import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native
 })
 export class LacamPage {
     calidad;
-    imageURI;
+    imageURI:string;
     persona;
+    estado:boolean;
     constructor(public navCtrl: NavController,
         public navParams: NavParams,
-        private miCAM: Camera,
+        private camera: Camera,
         private transfer: FileTransfer,
         public loadingCtrl: LoadingController) {
         this.calidad = 50;
-
         this.persona = this.navParams.get("data");
         console.log(this.persona);
+        this.estado=false;
     }
 
     ionViewDidLoad() {
@@ -35,33 +36,41 @@ export class LacamPage {
     }
 
     getPictureCamara() {
-        this.imageURI=false;
+        this.estado=false;
         let options: CameraOptions = {
-            destinationType: this.miCAM.DestinationType.DATA_URL,
+            destinationType: this.camera.DestinationType.DATA_URL,
             targetWidth: 500,
             targetHeight: 500,
-            quality: this.calidad
+            quality: this.calidad,
+            encodingType: 0,
+            allowEdit: true
         }
-        this.miCAM.getPicture(options)
+        this.camera.getPicture(options)
             .then(imageData => {
-                 this.laImagen(`data:image/jpeg;base64,${imageData}`);
+                this.laImagen(`data:image/jpeg;base64,${imageData}`);
+                this.estado=true;
             })
             .catch(error => {
                 console.error(error);
             });
     }
-
+    mensje;
     getImagenSD() {
-        this.imageURI=false;
+        this.estado=false;
         let options: CameraOptions = {
-            destinationType: this.miCAM.DestinationType.FILE_URI,
-            sourceType: this.miCAM.PictureSourceType.PHOTOLIBRARY,
+            destinationType: this.camera.DestinationType.FILE_URI,
+            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
             targetWidth: 500,
-            targetHeight: 500
+            targetHeight: 500,
+            quality: 100,
+            encodingType: 0,
+            allowEdit: true
         }
-        this.miCAM.getPicture(options)
+        this.camera.getPicture(options)
             .then(imageData => {
-                this.laImagen(imageData);
+                this.imageURI = imageData;
+                this.estado=true;
+                return this.imageURI;
             })
             .catch(error => {
                 console.error(error);
@@ -91,7 +100,7 @@ export class LacamPage {
             params: datos
         }
         this.info = "Procesando";
-        fileTransfer.upload(this.imageURI, 'http://192.168.0.225:8081/flas09/CRTL/SubirFoto.php', options)
+        fileTransfer.upload(this.imageURI, 'http://192.168.0.102/webflas09/CRTL/SubirFoto.php', options)
             .then((data) => {
                 this.actualizar(data);
                 loader.dismiss();

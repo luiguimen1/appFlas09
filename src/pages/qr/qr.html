@@ -1,0 +1,32 @@
+<!--  Generated template for the QrPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Crear QR</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-title>Crear Codigo</ion-title>
+    <ion-item>
+        <ion-label>Ingrese texto</ion-label>
+        <ion-input [(ngModel)]="texto" type="text" placeholder="Ingrese texto"></ion-input>
+    </ion-item>
+    <ion-item>
+        <button ion-button (click)="CrearQR()">Crear QR</button>
+    </ion-item>
+
+    <ion-card *ngIf="createdCode">
+        <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+        <ion-card-content>
+            <p>Value: {{ createdCode }}</p>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

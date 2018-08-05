@@ -15,33 +15,36 @@
 
 <ion-content>
     <ion-card>
+        <ion-grid>
+            <ion-row>
+                <ion-col>Nombre</ion-col>
+                <ion-col>{{persona.nombre}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>Apellido</ion-col>
+                <ion-col>{{persona.apellido}}</ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+
+
     <ion-grid>
         <ion-row>
-            <ion-col>Nombre</ion-col>
-            <ion-col>{{persona.nombre}}</ion-col>
-        </ion-row>
-    <ion-row>
-    <ion-col>Apellido</ion-col>
-    <ion-col>{{persona.apellido}}</ion-col>
-    </ion-row>
-    </ion-grid>
-    </ion-card>
-    
-    
-<ion-grid>
-    <ion-row>
-        <ion-col>
-            <button ion-button (click)="getPictureCamara()">Activar CAM</button>
-        </ion-col>
-        <ion-col>
-            <button ion-button (click)="getImagenSD()">Ver SD</button>
+            <ion-col>
+                <button ion-button (click)="getPictureCamara()">Activar CAM</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button (click)="getImagenSD()">Ver SD</button>
             </ion-col>
         </ion-row>
     </ion-grid>
-    <ion-card *ngIf="imageURI" >
-        <img src="{{imageURI}}" alt="Ionic File" width="300" />
-        <ion-item>
-            <button ion-button *ngIf="imageURI" (click)="CargarImagen()">CargarImagen</button>
-        </ion-item>
-    </ion-card>
+    <ion-card>
+        <ion-img [src]="imageURI" style="width: 80px; height: 80px;"></ion-img>
+        <img src="{{imageURI}}" alt="Ionic File" *ngIf="estado" style="width: 100%;" />   
+    </ion-card> 
+
+    <ion-item *ngIf="estado">
+        <div class="card-title">Foto a cargar</div>
+        <button ion-button (click)="CargarImagen()">CargarImagen</button>
+    </ion-item>
 </ion-content>
