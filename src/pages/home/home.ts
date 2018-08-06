@@ -6,6 +6,7 @@ import {ListadoPage} from '../listado/listado';
 import {LacamPage} from '../lacam/lacam';
 import {QrPage} from '../qr/qr';
 import {LeerqrPage} from '../leerqr/leerqr';
+import {TextToSpeech} from '@ionic-native/text-to-speech';
 
 @Component({
     selector: 'page-home',
@@ -13,7 +14,7 @@ import {LeerqrPage} from '../leerqr/leerqr';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, private tts: TextToSpeech) {
 
     }
 
@@ -22,24 +23,34 @@ export class HomePage {
         //push
         this.navCtrl.setRoot(RegistroPage);
     }
-    
-    IrCalculadora(){
+
+    IrCalculadora() {
         this.navCtrl.push(MatePage);
     }
-    
-    IraListado(){
+
+    IraListado() {
         this.navCtrl.push(ListadoPage);
     }
-    
-    IrCamara(){
+
+    IrCamara() {
         this.navCtrl.push(LacamPage);
     }
-    
-    irQR(){
+
+    irQR() {
         this.navCtrl.push(QrPage);
     }
-    
-    irLeer(){
+
+    irLeer() {
         this.navCtrl.push(LeerqrPage);
+    }
+
+    decir(texto) {
+        this.tts.speak(texto)
+            .then(() => console.log('Success'))
+            .catch((reason: any) => console.log(reason));
+    }
+    
+    ionViewDidLoad() {
+        this.decir("Bienvenido al su aplicación");
     }
 }

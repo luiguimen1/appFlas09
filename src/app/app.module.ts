@@ -24,6 +24,7 @@ import {LeerqrPage} from '../pages/leerqr/leerqr';
 
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
        // FileUploadOptions,
         FileTransferObject,
         File,
-        BarcodeScanner
+        BarcodeScanner,
+        TextToSpeech
     ]
 })
 export class AppModule {}
