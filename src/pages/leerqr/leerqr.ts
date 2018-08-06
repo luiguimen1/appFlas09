@@ -33,6 +33,7 @@ export class LeerqrPage {
             console.log('Error: ', err);
         });
     }
+    
     ionViewDidLoad() {
         console.log('ionViewDidLoad LeerqrPage');
     }

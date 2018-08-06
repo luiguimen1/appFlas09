@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      App Flores{{ipserve}}
-    </ion-title>
-      <button ion-button color="micolor" class="miboton" (click)="IrRegistros()">Registro</button>
-  </ion-navbar>
-    
+    <ion-navbar>
+        <ion-title>
+            App Flores{{ipserve}}
+        </ion-title>
+        <button ion-button color="micolor" class="miboton" (click)="IrRegistros()">Registro</button>
+    </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
@@ -14,19 +14,25 @@
     <div>
         <img src="../assets/imagenes/icono.jpg" alt=""/>
     </div>
-    
+
     <button ion-button color="secondary" (click)="IrCalculadora()">Ir Calculadora</button>
     <button ion-button color="secondary" (click)="IrCamara()">Ir Camara</button>
-    
+
     <button ion-button full color="primary" (click)="irQR()">Crear Qr</button>
     <button ion-button full color="secondary" (click)="irLeer()">Leer Qr</button>
+
+
+    <button ion-button full color="micolor" (click)="irlocal()">
+        <img style="width: 30px;" src="../assets/localizar.svg"/>
+        Localizar
+    </button>
 </ion-content>
 
 
 <ion-footer>
-  <ion-navbar>
-    <ion-title>
-      CetColsubsidio
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            CetColsubsidio
+        </ion-title>
+    </ion-navbar>
 </ion-footer>

@@ -6,6 +6,7 @@ import {ListadoPage} from '../listado/listado';
 import {LacamPage} from '../lacam/lacam';
 import {QrPage} from '../qr/qr';
 import {LeerqrPage} from '../leerqr/leerqr';
+import {LocalizacionPage} from '../localizacion/localizacion';
 import {TextToSpeech} from '@ionic-native/text-to-speech';
 
 @Component({
@@ -50,7 +51,12 @@ export class HomePage {
             .catch((reason: any) => console.log(reason));
     }
     
+    irlocal(){
+        this.navCtrl.push(LocalizacionPage);
+    }
+    
     ionViewDidLoad() {
         this.decir("Bienvenido al su aplicación");
     }
+    
 }

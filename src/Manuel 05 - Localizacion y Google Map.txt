@@ -1,0 +1,120 @@
+﻿Instalación de plugins ******
+ionic cordova plugin add cordova-plugin-geolocation --save
+npm install @ionic-native/geolocation --save
+
+ionic cordova plugin add cordova-plugin-nativegeocoder
+npm install --save @ionic-native/native-geocoder
+
+En el app.modules se presente los plugin ******
+import {Geolocation} from '@ionic-native/geolocation';
+import {NativeGeocoder} from '@ionic-native/native-geocoder';
+
+y en el segmento de provider se crea la instacia  ******
+Geolocation,
+NativeGeocoder
+
+Inicial traduciremos una direccion a cordenadas  ********
+para lo cual implementare la siguiente logica    ********
+
+en la page que realizara la traduccion se implmentara 
+import {NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult, NativeGeocoderOptions} from '@ionic-native/native-geocoder';
+
+
+en su constructor ***** 
+ private nativeGeocoder: NativeGeocoder
+
+se define una variable en la clase llamada ***
+mensaje 
+
+se define un metodo tradurcir direccion ****
+Traducir() {
+        let options: NativeGeocoderOptions = {
+            useLocale: true,
+            maxResults: 5
+        };
+        this.nativeGeocoder.forwardGeocode(this.direccion, options)
+            .then((coordinates: NativeGeocoderForwardResult[]) => {
+                this.mensaje = 'Las cordenadas son latitude=' + coordinates[0].latitude + ' y longitud=' + coordinates[0].longitude;
+            })
+            .catch((error: any) => {
+             //   this.mensaje = "hay un error";
+            });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+En el index de la carpeta Src 
+se ingrese la siguiente linea
+<script src="https://maps.googleapis.com/maps/api/js?key="*** MIKEY ****"&signed_in=true"></script>
+
+ahora se implementara las funciones ubicación con google ***
+import {Geolocation, Geoposition} from '@ionic-native/geolocation';
+
+Se definie una variable de apuntador     *********
+declare var google;
+
+en el constructor ******
+private geolocation: Geolocation
+
+
+se define un metodo de ubicacion y graficar la posición
+loadMap(lati, logi) {  
+        let mapEle: HTMLElement = document.getElementById('map');
+        let myLatLng = {lat: parseFloat(lati), lng: parseFloat(logi)};
+        // create map
+        this.map = new google.maps.Map(mapEle, {
+            center: myLatLng,
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        let marker;
+        google.maps.event.addListenerOnce(this.map, 'idle', () => {
+            marker = new google.maps.Marker({
+                position: myLatLng,
+                map: this.map,
+                title: 'Estoy Aqui!'
+            });
+            mapEle.classList.add('show-map');
+        });
+    }
+
+
+en el html  ***
+
+<div id="map">
+</div>
+
+
+en el css ***
+#map {
+        width: 100%;
+        height: 300px;
+        opacity: 0;
+        transition: opacity 150ms ease-in;
+        display: block;
+        &.show-map{
+            opacity: 1;
+        }
+    }

@@ -21,11 +21,13 @@ import {Camera} from '@ionic-native/camera';
 
 import {QrPage} from '../pages/qr/qr';
 import {LeerqrPage} from '../pages/leerqr/leerqr';
+import {LocalizacionPage} from '../pages/localizacion/localizacion';
 
-import { NgxQRCodeModule } from 'ngx-qrcode2';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { TextToSpeech } from '@ionic-native/text-to-speech';
-
+import {NgxQRCodeModule} from 'ngx-qrcode2';
+import {BarcodeScanner} from '@ionic-native/barcode-scanner';
+import {TextToSpeech} from '@ionic-native/text-to-speech';
+import {Geolocation} from '@ionic-native/geolocation';
+import {NativeGeocoder} from '@ionic-native/native-geocoder';
 
 @NgModule({
     declarations: [
@@ -37,7 +39,8 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
         VerperfilPage,
         LacamPage,
         QrPage,
-        LeerqrPage
+        LeerqrPage,
+        LocalizacionPage
     ],
     imports: [
         BrowserModule,
@@ -55,7 +58,8 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
         VerperfilPage,
         LacamPage,
         QrPage,
-        LeerqrPage
+        LeerqrPage,
+        LocalizacionPage
     ],
     providers: [
         StatusBar,
@@ -64,11 +68,13 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
         ConectarProvider,
         Camera,
         FileTransfer,
-       // FileUploadOptions,
+        // FileUploadOptions,
         FileTransferObject,
         File,
         BarcodeScanner,
-        TextToSpeech
+        TextToSpeech,
+        Geolocation,
+        NativeGeocoder
     ]
 })
 export class AppModule {}
